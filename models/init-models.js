@@ -6,8 +6,8 @@ function initModels(sequelize) {
   var empresa = _empresa(sequelize, DataTypes);
   var proveedor = _proveedor(sequelize, DataTypes);
 
-  pedidos.belongsTo(platos, { as: "idplato_plato", foreignKey: "idplato"});
-  empresa.hasMany(proveedor, { as: "pedidos", foreignKey: "idplato"});
+  proveedor.belongsTo(empresa, { as: "id_empresa_empresa", foreignKey: "id_empresa"});
+  empresa.hasMany(proveedor, { as: "proveedor", foreignKey: "id_empresa"});
 
   return {
     empresa,
