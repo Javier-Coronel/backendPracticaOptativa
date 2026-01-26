@@ -29,7 +29,8 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         facturacion: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
             allowNull: false
         },
         id_empresa: {

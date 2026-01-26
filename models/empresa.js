@@ -11,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(50),
             allowNull: false
         },
+        descripcion: {
+            type: DataTypes.STRING(50),
+            allowNull: true
+        },
         fechaCreacion:{
             type: DataTypes.DATE,
             allowNull: false
@@ -19,7 +23,17 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
             allowNull: false
-        }
+        },
+        facturacion: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            allowNull: false
+        },
+        porcentageControl: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+            allowNull: false
+        },
     },{
         sequelize,
         tableName: 'empresa',
