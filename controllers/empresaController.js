@@ -1,34 +1,18 @@
+// controllers/empresaController.js
+const { logMensaje } = require("../utils/logger.js");
 const empresaService = require("../services/empresaService");
 
 class EmpresaController {
-    async createEmpresa(req,res){
-        const empresa = req.body
+    async getAllEmpresas(req, res) {
         try {
-            const nuevaEmpresa = await empresaService.createEmpresa(empresa)
-            return res.status(201).json({
-                ok: true,
-                datos: nuevaEmpresa,
-                mensaje: "Empresa creada correctamente",
-            })
-        }
-        catch (err){
-            return res.status(501).json({
-                ok: false,
-                datos: null,
-                mensaje: "Error al crear la empresa",
-            })
-        }
-    }
-    async getAllEmpresas(req,res){
-        try {
-            const empresas = await empresaService.getAllEmpresas()
+            const empresas = await empresaService.getAllEmpresas();
             return res.status(200).json({
                 ok: true,
                 datos: empresas,
                 mensaje: "Empresas recuperadas correctamente",
             });
-        }
-        catch (err){
+        } catch (err) {
+            logMensaje("Error en getAllEmpresas:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
@@ -36,4 +20,53 @@ class EmpresaController {
             });
         }
     }
+    async getEmpresaById(req, res) {
+        const id_empresa = req.params.id;
+        try {
+            const empresa = await empresaService.getEmpresaById(id_empresa);
+            // empresa != null -- se ha encontrado la empresa
+            if (empresa) {
+                return res.status(200).json({
+                    ok: true,
+                    datos: empresa,
+                    mensaje: "Empresa recuperada correctamente",
+                });
+            } else {
+                return res.status(404).json({
+                    ok: false,
+                    datos: null,
+                    mensaje: "Empresa no encontrada",
+                });
+            }
+        } catch (err) {
+            logMensaje("Error en getEmpresaById:", err);
+            return res.status(500).json({
+                ok: false,
+                datos: null,
+                mensaje: "Error al recuperar una empresa",
+            });
+        }
+    }
+    async createEmpresa(req, res) {
+        const empresa = req.body;
+
+        try {
+            const empresaNew = await empresaService.createEmpresa(empresa);
+
+            return res.status(201).json({
+                ok: true,
+                datos: empresaNew,
+                mensaje: "Empresa creada correctamente",
+            });
+        } catch (err) {
+            logMensaje("Error en createEmpresa:", err);
+            return res.status(500).json({
+                ok: false,
+                datos: null,
+                mensaje: "Error al crear una empresa",
+            });
+        }
+    }
 }
+
+module.exports = new EmpresaController();
