@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: 0,
             allowNull: false
         },
-        porcentageControl: {
+        porcentajeEnBolsa: {
             type: DataTypes.FLOAT,
             defaultValue: 0,
             allowNull: false
