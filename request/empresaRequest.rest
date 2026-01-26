@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/empresa Content-Type: application/json
+
+{
+    "nombre": "PillaOro",
+    "fechaCreacion": "1989-10-12",
+}
+
+GET http://localhost:3000/api/empresa

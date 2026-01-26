@@ -1,5 +1,3 @@
-// controllers/empresaController.js
-const { logMensaje } = require("../utils/logger.js");
 const empresaService = require("../services/empresaService");
 
 class EmpresaController {
@@ -12,7 +10,6 @@ class EmpresaController {
                 mensaje: "Empresas recuperadas correctamente",
             });
         } catch (err) {
-            logMensaje("Error en getAllEmpresas:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
@@ -39,7 +36,6 @@ class EmpresaController {
                 });
             }
         } catch (err) {
-            logMensaje("Error en getEmpresaById:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
@@ -59,7 +55,6 @@ class EmpresaController {
                 mensaje: "Empresa creada correctamente",
             });
         } catch (err) {
-            logMensaje("Error en createEmpresa:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
