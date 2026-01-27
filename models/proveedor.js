@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 module.exports = function (sequelize, DataTypes) {
     return sequelize.define("proveedor", {
-        id: {
+        id_proveedor: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -33,6 +33,7 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: 0,
             allowNull: false
         },
+        /*
         id_empresa: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -40,10 +41,10 @@ module.exports = function (sequelize, DataTypes) {
                 model: 'empresa',
                 key: 'id_empresa'
             }
-        },
+        },*/
     },{
         sequelize,
-        tableName: 'empresa',
+        tableName: 'proveedor',
         timestamps: false,
         indexes: [
             {
@@ -51,16 +52,16 @@ module.exports = function (sequelize, DataTypes) {
                 unique: true,
                 using: "BTREE",
                 fields: [
-                  { name: "id" },
+                  { name: "id_proveedor" },
                 ]
-            },
+            }/*,
             {
-                name: "FK_EMPRESA",
+                name: "id_empresa",
                 using: "BTREE",
                 fields: [
                     { name: "id_empresa" },
                 ]
-            },
+            },*/
         ]
     });
 };

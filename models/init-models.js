@@ -6,12 +6,12 @@ function initModels(sequelize) {
     var empresa = _empresa(sequelize, DataTypes);
     var proveedor = _proveedor(sequelize, DataTypes);
 
-    proveedor.belongsTo(empresa, { as: "id_empresa_empresa", foreignKey: "id_empresa"});
-    empresa.hasMany(proveedor, { as: "proveedor", foreignKey: "id_empresa"});
+    proveedor.belongsTo(empresa, {foreignKey: "id_empresa"});
+    empresa.hasMany(proveedor, { as: "proveedor"});
 
     empresa.sync({ alter: true })
     proveedor.sync({ alter: true })
-
+    
     return {
         empresa,
         proveedor

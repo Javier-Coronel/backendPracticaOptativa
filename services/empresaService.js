@@ -25,7 +25,7 @@ class EmpresaService {
     
     async updateEmpresa(empresa) {
         let numFilas = await Empresa.update(empresa, {
-            where: { id: empresa.id },
+            where: { id_empresa: empresa.id_empresa },
         });
         if(numFilas == 0 && await Empresa.findByPk(empresa.id)){
             numFilas = 1;

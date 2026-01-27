@@ -54,5 +54,5 @@ class ProveedorService {
         return numFilas;
     }
 }
-
+sequelize.sync()
 module.exports = new ProveedorService();
