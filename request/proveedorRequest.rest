@@ -1,1 +1,51 @@
-GET http://localhost:3000/api/proveedor
+POST http://localhost:3000/api/proveedores HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "ProveeOro",
+    "fechaCreacion": "2008-11-12",
+    "recurso": "Oro",
+    "cantidad":10,
+    "facturacion": 900,
+    "empresaIdEmpresa": 1
+}
+
+###
+
+POST http://localhost:3000/api/proveedores HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "ProveeDiamante",
+    "fechaCreacion": "2008-11-12",
+    "recurso": "Diamante",
+    "cantidad":5,
+    "facturacion": 100,
+    "empresaIdEmpresa": 2
+}
+
+###
+
+GET http://localhost:3000/api/proveedores
+
+###
+
+GET http://localhost:3000/api/proveedores/1
+
+###
+
+GET http://localhost:3000/api/proveedores/empresa/1
+
+###
+
+PUT http://localhost:3000/api/proveedores/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "facturacion":15,
+    "fechaCreacion": "1989-10-12"
+}
+
+###
+
+DELETE http://localhost:3000/api/proveedores/1

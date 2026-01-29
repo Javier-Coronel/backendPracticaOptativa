@@ -1,16 +1,15 @@
-var DataTypes = require("sequelize").DataTypes;
-var _empresa = require("./empresa");
-var _proveedor = require("./proveedor");
+const DataTypes = require("sequelize").DataTypes;
+const _empresa = require("./empresa");
+const _proveedor = require("./proveedor");
 
 function initModels(sequelize) {
-    var empresa = _empresa(sequelize, DataTypes);
-    var proveedor = _proveedor(sequelize, DataTypes);
-
-    proveedor.belongsTo(empresa, {foreignKey: "id_empresa"});
+    const empresa = _empresa(sequelize, DataTypes);
+    const proveedor = _proveedor(sequelize, DataTypes);
+    proveedor.belongsTo(empresa, {foreignKey: "empresaIdEmpresa"});
     empresa.hasMany(proveedor, { as: "proveedor"});
 
-    empresa.sync({ alter: true })
-    proveedor.sync({ alter: true })
+    //empresa.sync({ alter: true })
+    //proveedor.sync({ alter: true })
     
     return {
         empresa,
