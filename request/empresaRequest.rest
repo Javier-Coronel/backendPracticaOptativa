@@ -22,7 +22,7 @@ GET http://localhost:3000/api/empresas
 
 ###
 
-GET http://localhost:3000/api/empresas/2
+GET http://localhost:3000/api/empresas/1
 
 ###
 
