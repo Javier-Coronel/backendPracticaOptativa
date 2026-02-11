@@ -55,6 +55,12 @@ services:
       depends_on:
         - db
       environment:
+        - DB_HOST=localhost
+        - DB_USER=root
+        - DB_PASSWORD=test
+        - DB_NAME=logistica
+        - DB_PORT=3306
+        - PORT=3000
         - NODE_ENV=development
       healthcheck:
         test: ["CMD", "curl", "-f", "http://localhost:${EXPRESS_PORT}"]
