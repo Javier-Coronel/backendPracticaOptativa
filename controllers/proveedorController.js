@@ -96,7 +96,6 @@ class ProveedorController {
                 mensaje: "Proveedor actualizado correctamente",
             });
         } catch (err) {
-            logMensaje("Error en updateProveedor:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
@@ -121,7 +120,6 @@ class ProveedorController {
                 mensaje: "Proveedor eliminado correctamente",
             });
         } catch (err) {
-            logMensaje("Error en deleteProveedor:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,

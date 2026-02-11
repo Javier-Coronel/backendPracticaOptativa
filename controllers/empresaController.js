@@ -103,7 +103,6 @@ class EmpresaController {
                 });
             }
         } catch (err) {
-            logMensaje("Error en EditEmpresa:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
@@ -128,7 +127,6 @@ class EmpresaController {
                 mensaje: "Empresa eliminada correctamente",
             });
         } catch (err) {
-            logMensaje("Error en deleteEmpresa:", err);
             return res.status(500).json({
                 ok: false,
                 datos: null,
