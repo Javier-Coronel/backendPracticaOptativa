@@ -55,7 +55,7 @@ services:
       depends_on:
         - db
       environment:
-        - DB_HOST=3.224.40.178
+        - DB_HOST=172.31.21.204
         - DB_USER=root
         - DB_PASSWORD=test
         - DB_NAME=logistica
