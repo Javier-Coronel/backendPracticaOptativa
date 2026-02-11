@@ -64,8 +64,8 @@ services:
         - NODE_ENV=development
       healthcheck:
         test: ["CMD", "curl", "-f", "http://localhost:${EXPRESS_PORT}"]
-        interval: 10s
-        timeout: 5s
+        interval: 30s
+        timeout: 15s
         retries: 5
 
 networks:
